@@ -1,19 +1,11 @@
 {{- if eq .context "wsl" -}}
 #!/bin/bash
+# Prerequisites: Homebrew and chezmoi (brew install chezmoi)
 set -euo pipefail
 
 echo "==> Installing WSL packages..."
 
-# --- Homebrew ---
-if ! command -v brew &> /dev/null; then
-    echo "==> Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-echo "==> Installing brew packages..."
 brew install \
-    chezmoi \
     fnm \
     oh-my-posh \
     pnpm \
