@@ -1,0 +1,30 @@
+{{- if eq .context "windows" -}}
+# Prerequisites: scoop, chezmoi (scoop install chezmoi)
+
+Write-Host "==> Adding scoop buckets..."
+$buckets = scoop bucket list | ForEach-Object { $_.Name }
+if ("extras" -notin $buckets) { scoop bucket add extras }
+if ("nerd-fonts" -notin $buckets) { scoop bucket add nerd-fonts }
+
+Write-Host "==> Installing scoop packages..."
+$packages = @(
+    "7zip"
+    "fnm"
+    "gh"
+    "git"
+    "JetBrainsMono-NF"
+    "neovim"
+    "oh-my-posh"
+    "uv"
+)
+
+foreach ($pkg in $packages) {
+    if (-not (scoop info $pkg 2>$null).Installed) {
+        scoop install $pkg
+    } else {
+        Write-Host "  $pkg already installed"
+    }
+}
+
+Write-Host "==> Windows packages done!"
+{{ end -}}
