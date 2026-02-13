@@ -8,4 +8,6 @@
 {{- else if eq .context "termux" }}
 [credential]
     helper = store
+[safe]
+    directory = /storage/emulated/0/Documents/obsidian-vault
 {{- end }}
