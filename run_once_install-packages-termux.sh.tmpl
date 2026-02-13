@@ -1,0 +1,22 @@
+{{- if eq .context "termux" -}}
+#!/bin/bash
+# Prerequisites: chezmoi (pkg install chezmoi)
+set -euo pipefail
+
+echo "==> Installing Termux packages..."
+
+pkg update -y
+pkg install -y \
+    git \
+    neovim \
+    oh-my-posh \
+    openssh \
+    termux-api
+
+echo "==> Setting up storage access..."
+if [ ! -d ~/storage ]; then
+    termux-setup-storage
+fi
+
+echo "==> Termux packages done!"
+{{ end -}}
