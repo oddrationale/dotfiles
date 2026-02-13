@@ -1,3 +1,4 @@
+{{- /* chezmoi:template:left-delimiter=[[ right-delimiter=]] */ -}}
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "palette": {
@@ -91,6 +92,20 @@
           },
           "template": " \uf253 {{ .FormattedMs }} "
         },
+[[ if eq .context "termux" -]]
+        {
+          "type": "command",
+          "style": "diamond",
+          "trailing_diamond": "\ue0b0",
+          "foreground": "p:foreground",
+          "background": "p:pink",
+          "properties": {
+            "command": "date +%H:%M",
+            "shell": "bash"
+          },
+          "template": " \u2665 {{ .Output }} "
+        }
+[[ else -]]
         {
           "type": "time",
           "style": "diamond",
@@ -102,6 +117,7 @@
           },
           "template": " \u2665 {{ .CurrentDate | date .Format }} "
         }
+[[ end -]]
       ]
     },
     {
