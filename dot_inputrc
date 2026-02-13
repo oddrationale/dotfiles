@@ -16,3 +16,10 @@ set mark-symlinked-directories on
 
 # Show common prefix in color for ambiguous completions
 set colored-completion-prefix on
+
+# Up/Down searches history filtered by what you've typed so far
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Bracketed paste mode (prevents pasted text from executing prematurely)
+set enable-bracketed-paste on

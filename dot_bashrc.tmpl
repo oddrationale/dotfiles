@@ -64,6 +64,11 @@ alias gb='git branch'
 alias storage='cd /storage/emulated/0'
 {{- end }}
 
+# Auto-ls on cd
+cd() {
+    builtin cd "$@" && ls
+}
+
 # --- Bash Completion ---
 if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
