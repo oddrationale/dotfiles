@@ -10,3 +10,9 @@
 {{- else if eq .chezmoi.os "windows" }}
     context = "windows"
 {{- end }}
+
+{{- if eq .chezmoi.os "android" }}
+
+[interpreters.sh]
+    command = "/data/data/com.termux/files/usr/bin/bash"
+{{- end }}
