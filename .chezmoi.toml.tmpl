@@ -1,0 +1,12 @@
+# chezmoi config
+# Auto-detected values available: .chezmoi.os, .chezmoi.hostname, etc.
+# On Termux, .chezmoi.os == "android"
+
+[data]
+{{- if eq .chezmoi.os "android" }}
+    context = "termux"
+{{- else if eq .chezmoi.os "linux" }}
+    context = "wsl"
+{{- else if eq .chezmoi.os "windows" }}
+    context = "windows"
+{{- end }}

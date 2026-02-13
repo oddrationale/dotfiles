@@ -1,0 +1,11 @@
+[user]
+    email = 80038+oddrationale@users.noreply.github.com
+    name = Dariel Dato-on
+
+{{- if eq .context "wsl" }}
+[credential]
+    helper = /mnt/c/Users/oddra/scoop/apps/git/current/clangarm64/bin/git-credential-manager.exe
+{{- else if eq .context "termux" }}
+[credential]
+    helper = store
+{{- end }}

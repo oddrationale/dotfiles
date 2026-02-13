@@ -1,0 +1,3 @@
+{{- if ne .context "termux" }}
+.termux/**
+{{- end }}
