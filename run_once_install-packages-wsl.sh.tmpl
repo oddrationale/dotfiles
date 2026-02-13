@@ -1,0 +1,30 @@
+{{- if eq .context "wsl" -}}
+#!/bin/bash
+set -euo pipefail
+
+echo "==> Installing WSL packages..."
+
+# --- Homebrew ---
+if ! command -v brew &> /dev/null; then
+    echo "==> Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+echo "==> Installing brew packages..."
+brew install \
+    chezmoi \
+    fnm \
+    oh-my-posh \
+    pnpm \
+    ripgrep \
+    uv
+
+# --- Node via fnm ---
+if ! fnm list | grep -q "v24"; then
+    echo "==> Installing Node LTS via fnm..."
+    fnm install --lts
+fi
+
+echo "==> WSL packages done!"
+{{ end -}}
