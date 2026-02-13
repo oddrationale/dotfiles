@@ -80,6 +80,20 @@
           },
           "template": " {{ if gt .Code 0 }}\uf00d {{ reason .Code }}{{ else }}\uf00c{{ end }} "
         },
+[[ if eq .context "termux" -]]
+        {
+          "type": "executiontime",
+          "style": "diamond",
+          "trailing_diamond": "\ue0b0",
+          "foreground": "p:background",
+          "background": "p:yellow",
+          "properties": {
+            "threshold": 3000,
+            "style": "round"
+          },
+          "template": " \uf253 {{ .FormattedMs }} "
+        }
+[[ else -]]
         {
           "type": "executiontime",
           "style": "powerline",
@@ -92,20 +106,6 @@
           },
           "template": " \uf253 {{ .FormattedMs }} "
         },
-[[ if eq .context "termux" -]]
-        {
-          "type": "command",
-          "style": "diamond",
-          "trailing_diamond": "\ue0b0",
-          "foreground": "p:foreground",
-          "background": "p:pink",
-          "properties": {
-            "command": "date +%H:%M",
-            "shell": "bash"
-          },
-          "template": " \u2665 {{ .Output }} "
-        }
-[[ else -]]
         {
           "type": "time",
           "style": "diamond",
