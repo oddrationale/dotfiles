@@ -6,19 +6,24 @@ case $- in
       *) return;;
 esac
 
-# History
-HISTCONTROL=ignoreboth
+# --- History ---
+HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=50000
+HISTFILESIZE=50000
+HISTTIMEFORMAT="%F %T "
 shopt -s histappend
-HISTSIZE=1000
-HISTFILESIZE=2000
+# Share history across sessions
+PROMPT_COMMAND="history -a; history -n${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
-# Window size check
+# --- Shell Options ---
 shopt -s checkwinsize
+shopt -s cdspell dirspell   # autocorrect typos in cd and completion
+shopt -s globstar           # enable ** recursive globbing
 
 # Lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Color support
+# --- Colors ---
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -27,12 +32,39 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Aliases
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# --- Aliases ---
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Bash completion
+# Safety
+alias cp='cp -i'
+alias mv='mv -i'
+alias chmod='chmod --preserve-root'
+alias chown='chown --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# Git
+alias gs='git status'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gl='git log --oneline --graph --decorate'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gpull='git pull'
+alias gco='git checkout'
+alias gb='git branch'
+
+{{- if eq .context "termux" }}
+
+# Termux
+alias storage='cd /storage/emulated/0'
+{{- end }}
+
+# --- Bash Completion ---
 if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
         . /usr/share/bash-completion/bash_completion
