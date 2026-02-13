@@ -6,6 +6,11 @@ case $- in
       *) return;;
 esac
 
+{{- if eq .context "termux" }}
+# --- Timezone (oh-my-posh needs $TZ on Termux) ---
+export TZ=$(getprop persist.sys.timezone)
+{{- end }}
+
 # --- History ---
 HISTCONTROL=ignoreboth:erasedups
 HISTSIZE=50000
