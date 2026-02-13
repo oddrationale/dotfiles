@@ -26,6 +26,7 @@
           "background": "p:comment",
           "template": " {{ .Icon }} "
         },
+[[ if ne .context "termux" -]]
         {
           "type": "session",
           "style": "powerline",
@@ -34,6 +35,7 @@
           "background": "p:comment",
           "template": "{{ .UserName }} "
         },
+[[ end -]]
         {
           "type": "path",
           "style": "powerline",
