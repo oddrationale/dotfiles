@@ -87,7 +87,7 @@
           "background": "p:yellow",
           "properties": {
             "threshold": 3000,
-            "style": "roundup"
+            "style": "round"
           },
           "template": " \uf253 {{ .FormattedMs }} "
         },
