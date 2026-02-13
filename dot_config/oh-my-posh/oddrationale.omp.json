@@ -67,8 +67,8 @@
         },
         {
           "type": "status",
-          "style": "diamond",
-          "trailing_diamond": "\ue0b0",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
           "foreground": "p:foreground",
           "background": "p:green",
           "background_templates": [
@@ -78,17 +78,11 @@
             "always_enabled": true
           },
           "template": " {{ if gt .Code 0 }}\uf00d {{ reason .Code }}{{ else }}\uf00c{{ end }} "
-        }
-      ]
-    },
-    {
-      "alignment": "right",
-      "type": "rprompt",
-      "segments": [
+        },
         {
           "type": "executiontime",
-          "style": "diamond",
-          "leading_diamond": "\ue0b2",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
           "foreground": "p:background",
           "background": "p:yellow",
           "properties": {
@@ -100,8 +94,7 @@
         {
           "type": "time",
           "style": "diamond",
-          "leading_diamond": "\ue0b2",
-          "trailing_diamond": "\ue0b4",
+          "trailing_diamond": "\ue0b0",
           "foreground": "p:foreground",
           "background": "p:pink",
           "properties": {
