@@ -23,7 +23,7 @@
           "leading_diamond": "\ue0b6",
           "foreground": "p:foreground",
           "background": "p:comment",
-          "template": " {{ if .WSL }}\ue712 {{ end }}{{ .Icon }} "
+          "template": " {{ .Icon }} "
         },
         {
           "type": "session",
