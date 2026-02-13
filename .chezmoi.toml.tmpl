@@ -10,6 +10,8 @@
 {{- else if eq .chezmoi.os "windows" }}
     context = "windows"
 {{- end }}
+    name = {{ promptStringOnce . "name" "Your full name" "Dariel Dato-on" | quote }}
+    email = {{ promptStringOnce . "email" "Git email" "80038+oddrationale@users.noreply.github.com" | quote }}
 
 {{- if eq .chezmoi.os "android" }}
 

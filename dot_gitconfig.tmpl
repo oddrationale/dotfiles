@@ -1,6 +1,6 @@
 [user]
-    email = 80038+oddrationale@users.noreply.github.com
-    name = Dariel Dato-on
+    email = {{ .email }}
+    name = {{ .name }}
 
 {{- if eq .context "wsl" }}
 [credential]
