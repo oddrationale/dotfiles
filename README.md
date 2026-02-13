@@ -57,7 +57,7 @@ irm get.scoop.dev | iex
 
 # Install chezmoi and apply
 scoop install chezmoi
-chezmoi init git@github.com:oddrationale/dotfiles.git --apply
+chezmoi init oddrationale/dotfiles --apply
 ```
 
 ## First-Time Prompts
