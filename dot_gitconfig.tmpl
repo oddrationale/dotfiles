@@ -2,6 +2,9 @@
     email = {{ .email }}
     name = {{ .name }}
 
+[core]
+    excludesFile = ~/.config/git/ignore
+
 {{- if eq .context "wsl" }}
 [credential]
     helper = /mnt/c/Users/oddra/scoop/apps/git/current/clangarm64/bin/git-credential-manager.exe
