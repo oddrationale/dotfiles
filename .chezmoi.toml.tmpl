@@ -12,6 +12,9 @@
 {{- end }}
     name = {{ promptStringOnce . "name" "Your full name" "Dariel Dato-on" | quote }}
     email = {{ promptStringOnce . "email" "Git email" "80038+oddrationale@users.noreply.github.com" | quote }}
+{{- if eq .chezmoi.os "windows" }}
+    onedrive = {{ promptStringOnce . "onedrive" "OneDrive folder name (e.g. OneDrive or OneDrive - EY)" "OneDrive" | quote }}
+{{- end }}
 
 {{- if eq .chezmoi.os "android" }}
 
