@@ -100,15 +100,15 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.aspire/bin:$PATH"
 {{- end }}
 
-# fnm (Node version manager)
+{{- if eq .context "wsl" }}
+# Linuxbrew first — fnm lives here, so this must come before fnm setup
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- end }}
+
+# fnm (Node version manager) — must come AFTER Linuxbrew shellenv so fnm is on PATH
 if command -v fnm &> /dev/null; then
     eval "$(fnm env --use-on-cd --shell bash)"
 fi
-
-{{- if eq .context "wsl" }}
-# Linuxbrew AFTER fnm so brew tools (e.g. pnpm) win over corepack shims
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-{{- end }}
 
 # Oh My Posh
 if command -v oh-my-posh &> /dev/null; then
