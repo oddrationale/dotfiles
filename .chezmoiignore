@@ -4,4 +4,12 @@ README.md
 {{- end }}
 {{- if ne .context "windows" }}
 OneDrive/**
+OneDrive - EY/**
+{{- else }}
+{{ if ne .onedrive "OneDrive" }}
+OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+{{ end }}
+{{ if ne .onedrive "OneDrive - EY" }}
+OneDrive - EY/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+{{ end }}
 {{- end }}
