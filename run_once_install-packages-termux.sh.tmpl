@@ -7,11 +7,17 @@ echo "==> Installing Termux packages..."
 
 pkg update -y
 pkg install -y \
+    build-essential \
+    fd \
     git \
     neovim \
+    nodejs-lts \
     oh-my-posh \
     openssh \
-    termux-api
+    python \
+    ripgrep \
+    termux-api \
+    uv
 
 echo "==> Setting up storage access..."
 if [ ! -d ~/storage ]; then
