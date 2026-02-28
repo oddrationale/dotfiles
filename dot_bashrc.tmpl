@@ -64,13 +64,12 @@ alias gco='git checkout'
 alias gb='git branch'
 
 # Claude / OpenClaw
-if command -v claude &>/dev/null; then
-    # Always run Claude Code with permissions checks disabled (you asked for a single alias)
-    alias cl='claude --allow-dangerously-skip-permissions'
-fi
-if command -v openclaw &>/dev/null; then
-    alias oc='openclaw tui'
-fi
+# Define these unconditionally so they work even if PATH is extended later in this file.
+# (If the command isn't installed, you'll only see an error when you try to run it.)
+alias cl='claude --allow-dangerously-skip-permissions'
+alias oc='openclaw tui'
+# Convenience: bash aliases are case-sensitive, so allow uppercase too.
+alias OC='openclaw tui'
 
 {{- if eq .context "termux" }}
 
