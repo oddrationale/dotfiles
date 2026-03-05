@@ -7,7 +7,7 @@
 
 {{- if eq .context "wsl" }}
 [credential]
-    helper = /mnt/c/Users/oddra/scoop/apps/git/current/clangarm64/bin/git-credential-manager.exe
+    helper = {{ .gcm_path }}
 {{- else if eq .context "termux" }}
 [credential]
     helper = store
