@@ -3,12 +3,18 @@
 
 # --- PSReadLine ---
 Set-PSReadLineOption -EditMode Emacs
-Set-PSReadLineOption -PredictionSource HistoryAndPlugin
-Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+if ($Host.Name -eq 'ConsoleHost' -and [Environment]::UserInteractive) {
+    try {
+        Set-PSReadLineOption -PredictionSource HistoryAndPlugin
+        Set-PSReadLineOption -PredictionViewStyle ListView
+    } catch {
+        # Some redirected or embedded hosts do not support PSReadLine prediction UI.
+    }
+}
 Set-PSReadLineOption -Colors @{
     Command   = '#50fa7b'
     Parameter = '#ffb86c'
