@@ -7,9 +7,9 @@ OneDrive/**
 OneDrive - EY/**
 {{- else }}
 {{ if ne .onedrive "OneDrive" }}
-OneDrive/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+OneDrive/**
 {{ end }}
 {{ if ne .onedrive "OneDrive - EY" }}
-OneDrive - EY/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+OneDrive - EY/**
 {{ end }}
 {{- end }}
