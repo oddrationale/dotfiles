@@ -2,7 +2,7 @@
 # Managed alongside chezmoi dotfiles
 
 # --- PSReadLine ---
-Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineOption -EditMode Windows
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
