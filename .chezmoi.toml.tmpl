@@ -15,9 +15,6 @@
 {{- if eq .chezmoi.os "linux" }}
     gcm_path = {{ promptStringOnce . "gcm_path" "Path to git-credential-manager.exe" "/mnt/c/Users/oddra/scoop/apps/git/current/clangarm64/bin/git-credential-manager.exe" | quote }}
 {{- end }}
-{{- if eq .chezmoi.os "windows" }}
-    onedrive = {{ promptStringOnce . "onedrive" "OneDrive folder name (e.g. OneDrive or OneDrive - EY)" "OneDrive" | quote }}
-{{- end }}
 
 {{- if eq .chezmoi.os "android" }}
 

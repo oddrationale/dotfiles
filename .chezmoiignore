@@ -4,12 +4,5 @@ README.md
 {{- end }}
 {{- if ne .context "windows" }}
 OneDrive/**
-OneDrive - EY/**
-{{- else }}
-{{ if ne .onedrive "OneDrive" }}
-OneDrive/**
-{{ end }}
-{{ if ne .onedrive "OneDrive - EY" }}
-OneDrive - EY/**
-{{ end }}
+AppData/**
 {{- end }}

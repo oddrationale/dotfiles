@@ -14,6 +14,7 @@ Supports **WSL** (Ubuntu), **Termux** (Android), and **Windows** (PowerShell).
 | `~/.config/oh-my-posh/oddrationale.omp.json` | Custom Dracula prompt theme | All |
 | `~/.termux/*` | Colors, properties, font | Termux only |
 | `~/OneDrive/.../Microsoft.PowerShell_profile.ps1` | PowerShell profile (PSReadLine, aliases) | Windows only |
+| `~/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/*` | Windows Terminal settings and Ubuntu icon | Windows only |
 
 ### Bootstrap Scripts (`run_once_`)
 
